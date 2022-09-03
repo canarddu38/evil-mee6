@@ -5,7 +5,7 @@ import requests
 import aiohttp
 import random
 
-class DSbot(discord.Client):
+class evil-mee6(discord.Client):
     async def on_ready(self):
         print("Ready!")
         
@@ -17,11 +17,12 @@ class DSbot(discord.Client):
 
     async def on_message(self, message):
         if message.content.startswith('/help'):
+            await message.channel.send("test")
 
 
 intents = discord.Intents.default()
 intents.message_content = True
-client = DSbot(intents=intents)
+client = evil-mee6(intents=intents)
 
 
 client.run(os.environ['DISCORD_TOKEN'])
