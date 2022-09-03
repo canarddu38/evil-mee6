@@ -5,13 +5,13 @@ import requests
 import aiohttp
 import random
 
-class evil-mee6(discord.Client):
+class mee6(discord.Client):
     async def on_ready(self):
         print("Ready!")
         
 
     async def on_member_join(member):
-        
+        print("joined: "+member.mention)
 
 
 
@@ -22,7 +22,7 @@ class evil-mee6(discord.Client):
 
 intents = discord.Intents.default()
 intents.message_content = True
-client = evil-mee6(intents=intents)
+client = mee6(intents=intents)
 
 
 client.run(os.environ['DISCORD_TOKEN'])
