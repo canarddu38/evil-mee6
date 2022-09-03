@@ -37,7 +37,7 @@ class mee6(discord.Client):
             currentguild = message.guild
             print(currentguild.members)
             for name in currentguild.members:
-                
+                print("new user: "+name)
             await message.delete()
             
             
